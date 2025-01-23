@@ -14,7 +14,7 @@ class TodoList {
 }
 
 class ToDo {
-  id = 0;
+  static id = 0;
   constructor(text, date, priority, project = "home") {
     this.text = text;
     this.date = date;

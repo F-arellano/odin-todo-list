@@ -1,6 +1,10 @@
+import { setDelBtn } from "./events";
+
 function loadTodos(todoList) {
   for (let todo of todoList.allTodos) {
+    console.log(todo.id);
     addTodoNode(todo);
+    setDelBtn(todo);
   }
 }
 
@@ -9,10 +13,11 @@ function addTodoNode(todo) {
   const todoNode = document.createElement("div");
 
   todoNode.classList.add("todo");
+  todoNode.id = `todo${todo.id}`;
   todoNode.innerHTML = `
     <input type="checkbox" />
     <span class="text">${todo.text}</span>
-    <span class="date">${todo.date}</span>
+    <span class="date">${todo.id}</span>
     <button>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <title>note-edit-outline</title>
@@ -21,7 +26,7 @@ function addTodoNode(todo) {
         />
         </svg>
     </button>
-    <button>
+    <button id="del-btn${todo.id}">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <title>trash-can</title>
         <path
@@ -30,7 +35,6 @@ function addTodoNode(todo) {
         </svg>
     </button>
     `;
-
   mainDiv.appendChild(todoNode);
 }
 
