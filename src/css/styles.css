@@ -1,3 +1,82 @@
-p {
-    color: blue;
+* {
+    font-family: smooch-sans-var, sans-serif;
+
+    --white-color: #F8F9FA;
+    --primary-color: #63d0d2;
+    --secondary-color: #FFE9A3;
+    --text-color: #555B6E;
+    --text-light-color: #9AA5B1;
+
+    /* border: 1px solid red; */
+}
+
+@font-face {
+    font-family: smooch-sans-var;
+    src: url("../fonts/SmoochSans-VariableFont_wght.ttf");
+}
+
+body {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+
+    background-image: url("../img/mint-background.jpg");
+}
+
+.content {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+        "head head"
+        "side main";
+
+    width: 80vw;
+    height: 96vh;
+    margin-top: 2vh;
+
+    box-shadow: 2px 2px 10px 2px rgb(33, 33, 33);
+}
+
+.head-bar {
+    grid-area: head;
+    height: 5rem;
+    padding-left: 4rem;
+
+    background-color: var(--primary-color);
+
+    & h1 {
+        position: relative;
+        top: -0.7rem;
+        display: inline;
+
+        color: var(--white-color);
+        font-size: 4.5rem;
+        font-weight: 700;
+        letter-spacing: 0.2rem;
+    }
+
+    & svg {
+        display: inline;
+        height: 4rem;
+        padding: 0px 20px;
+    }
+
+    & path {
+        fill: white;
+    }
+}
+
+.side-bar {
+    grid-area: side;
+    width: 20rem;
+    padding: 1rem;
+
+    background-color: var(--secondary-color);
+}
+
+.main {
+    grid-area: main;
+
+    background-color: var(--white-color);
 }
