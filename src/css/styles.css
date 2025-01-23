@@ -1,82 +1,189 @@
 * {
-    font-family: smooch-sans-var, sans-serif;
+  font-family: smooch-sans-var, sans-serif;
 
-    --white-color: #F8F9FA;
-    --primary-color: #63d0d2;
-    --secondary-color: #FFE9A3;
-    --text-color: #555B6E;
-    --text-light-color: #9AA5B1;
+  --white-color: #f8f9fa;
+  --main-color: #63d0d2;
+  --main-gray-color: #d7e7e7;
+  --main-dark-color: #499597;
+  --secondary-color: #ffe9a3;
+  --gray-color: #555b6e;
+  --light-color: #e1e1f1;
 
-    /* border: 1px solid red; */
+  /* border: 1px solid red; */
 }
 
 @font-face {
-    font-family: smooch-sans-var;
-    src: url("../fonts/SmoochSans-VariableFont_wght.ttf");
+  font-family: smooch-sans-var;
+  src: url("../fonts/SmoochSans-VariableFont_wght.ttf");
 }
 
 body {
-    display: grid;
-    align-items: center;
-    justify-items: center;
+  display: grid;
+  align-items: center;
+  justify-items: center;
 
-    background-image: url("../img/mint-background.jpg");
+  background-image: url("../img/mint-background.jpg");
 }
 
 .content {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-template-columns: auto 1fr;
-    grid-template-areas:
-        "head head"
-        "side main";
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "head head"
+    "side main";
 
-    width: 80vw;
-    height: 96vh;
-    margin-top: 2vh;
+  width: 80vw;
+  height: 96vh;
+  margin-top: 2vh;
 
-    box-shadow: 2px 2px 10px 2px rgb(33, 33, 33);
+  box-shadow: 2px 2px 10px 2px rgb(33, 33, 33);
+
+  border-radius: 50%;
 }
 
 .head-bar {
-    grid-area: head;
-    height: 5rem;
-    padding-left: 4rem;
+  grid-area: head;
+  height: 5rem;
+  padding-left: 4rem;
 
-    background-color: var(--primary-color);
+  background-color: var(--main-color);
 
-    & h1 {
-        position: relative;
-        top: -0.7rem;
-        display: inline;
+  & h1 {
+    position: relative;
+    top: -0.7rem;
+    display: inline;
 
-        color: var(--white-color);
-        font-size: 4.5rem;
-        font-weight: 700;
-        letter-spacing: 0.2rem;
-    }
+    color: var(--white-color);
+    font-size: 4.5rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+  }
 
-    & svg {
-        display: inline;
-        height: 4rem;
-        padding: 0px 20px;
-    }
+  & svg {
+    display: inline;
+    height: 4rem;
+    padding: 0px 20px;
+  }
 
-    & path {
-        fill: white;
-    }
+  & path {
+    fill: white;
+  }
 }
 
 .side-bar {
-    grid-area: side;
-    width: 20rem;
-    padding: 1rem;
+  grid-area: side;
+  width: 20rem;
+  padding: 2rem 4rem;
 
-    background-color: var(--secondary-color);
+  border-right: 1px solid rgb(183, 183, 183);
+
+  background-color: var(--main-gray-color);
+
+  & li {
+    display: grid;
+    grid-template-columns: auto auto;
+  
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+    font-weight: 300;
+
+  }
+
+  & h2 {
+    font-size: 3rem;
+    font-weight: 400;
+  }
+
+  & h3 {
+    font-size: 3rem;
+    font-weight: 400;
+
+    &:hover, .selected {
+      &::before {
+        font-weight: 800;
+        letter-spacing: -0.5rem;
+        content: "//   ";
+        padding-right: 1rem;
+      }
+    }
+  }
+
+  & span:first-of-type.selected, span:first-of-type:hover {
+    font-size: 2.1rem;
+    font-weight: 400;
+
+    &::before {
+      font-weight: 800;
+      letter-spacing: -0.3rem;
+      content: "//   ";
+      padding-right: 1rem;
+    }
+  }
+
+  & span:last-child:not(:empty) {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.4rem;
+
+    justify-self: end;
+    align-self: center;
+    text-align: center;
+
+    border: 1px solid transparent;
+    padding-bottom: 1rem;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    color: var(--white-color);
+
+    width: 1.5rem;
+    height: 1.5rem;
+
+  }
 }
 
 .main {
-    grid-area: main;
+  grid-area: main;
+  background-color: var(--white-color);
+}
 
-    background-color: var(--white-color);
+.grid-box {
+  margin: 2rem;
+  display: grid;
+  gap: 15px;
+  grid-auto-rows: 40px;
+}
+
+.todo {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto auto;
+  gap: 20px;
+  padding: 0px 10px;
+  align-items: center;
+
+  background-color: var(--light-color);
+
+  font-size: 1.5rem;
+
+  &:hover {
+    box-shadow: 2px 2px 10px 0px var(--gray-color);
+    border: 4px solid var(--light-color);
+  }
+
+  & button {
+    border: none;
+    background: none;
+    position: relative;
+    top: 0.1rem;
+  }
+
+  & svg {
+    display: inline;
+    height: 1.5rem;
+    padding: 0px 0px;
+  }
+
+  & path {
+    fill: var(--main-color);
+  }
 }
