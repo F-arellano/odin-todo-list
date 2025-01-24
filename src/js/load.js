@@ -2,7 +2,6 @@ import { setDelBtn } from "./events";
 
 function loadTodos(todoList) {
   for (let todo of todoList.allTodos) {
-    console.log(todo.id);
     addTodoNode(todo);
     setDelBtn(todo);
   }
