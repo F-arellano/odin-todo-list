@@ -50,6 +50,15 @@ function showPopUp() {
         <input type="text" placeholder="Title: e.g, Pay rent" maxlength=30>
         <textarea placeholder="details..."></textarea>
     </div>
+    <div class="pop-foot">
+      <span>Due Date:</span>
+      <input type="date">
+      <span>Priority</span>
+      <button value=0>Low</button>
+      <button value=1>Medium</button>
+      <button value=2>High</button>
+      <button class="add-todo">Add To Do</button>
+    </div>
   `;
 
   body.appendChild(popDiv);
